@@ -133,7 +133,7 @@ Retro JRPG pixel-art style.
 
 ### Codex-Built Playable Game Showcases
 
-End-to-end playable game prototypes designed and built with Codex, with sprites and props produced through `$generate2dsprite` and map scenes planned through `$generate2dmap` when the game needs structured maps. Some are one-shot prompt demos; others are iterative Godot assemblies with generated assets wired into real engine scenes.
+End-to-end playable game prototypes designed and built with Codex, with sprites and props produced through `$generate2dsprite` and map scenes planned through `$generate2dmap` when the game needs structured maps. Some are one-shot prompt demos; others are iterative engine assemblies with generated assets wired into real Godot or Unity scenes.
 
 #### Neon Breach — Cyberpunk Side-Scroller
 
@@ -213,6 +213,44 @@ Pipeline:
 
 ```text
 image_gen map + separated props + tower sheets + enemy animation sheets + HUD icons + Godot gameplay wiring
+```
+
+#### Summon Survivors — Unity WebGL Survivors-like
+
+A Unity 6 WebGL prototype built with Codex + agent-sprite-forge. The project uses generated map art, a directional hero, summon creatures, evolved summon variants, enemies, boss waves, pickups, HUD icons, projectile/area FX, level-up choices, and WebGL deployment wiring.
+
+Links:
+
+- [Play the WebGL build](https://summon-survivors.vercel.app/)
+- [Full build conversation](https://drive.google.com/file/d/1TL7qRX95przTToZILVQ1EFwEXm3flB6t/view?usp=sharing)
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./src/summon-survivors-game-preview1.png" alt="Summon Survivors Unity WebGL gameplay with summons, enemies, pickups, HUD, and objective" width="420" />
+      <br />
+      <strong>Unity WebGL gameplay: summons, enemies, pickups, HUD, and objective flow</strong>
+    </td>
+    <td align="center" width="50%">
+      <img src="./src/summon-survivors-game-preview2-levelup.png" alt="Summon Survivors Unity WebGL level-up menu with summon and stat choices" width="420" />
+      <br />
+      <strong>Level-up choices: summon unlocks, training, stats, and recovery</strong>
+    </td>
+  </tr>
+</table>
+
+Unity prototype output includes:
+
+- `Assets/Survivors/Scenes/SummonSurvivors.unity` as the playable scene.
+- `SurvivorContentDatabase.asset` connecting generated hero, summon, enemy, pickup, HUD, and FX sprites.
+- Starter summon selection, survival objective, XP/coin pickups, level-up choices, summon training, and evolution flow.
+- Enemy spawning pressure, boss timing, projectile attacks, area damage, health bars, and score tracking.
+- WebGL build output under `Builds/WebGL` with Vercel deployment config.
+
+Pipeline:
+
+```text
+image_gen map + directional hero sheets + summon/evolution sheets + enemy sheets + FX/HUD icons + Unity runtime + WebGL deploy
 ```
 
 ### Layered RPG Map / Clean HD Reference Pipeline
@@ -350,6 +388,7 @@ The current focus is 2D game assets and map scenes, not full game-pack automatio
 - Small bundles such as `unit_bundle`, `spell_bundle`, and `combat_bundle`
 - Reference-guided sprite variants, animation sheets, and evolution lines
 - Godot tower-defense prototypes with maps, props, towers, enemies, waves, HUD, and build/upgrade/sell flow
+- Unity WebGL survivors-like prototypes with maps, directional characters, summons, enemies, bosses, FX, HUD, level-up choices, and deployment output
 - Single baked 2D maps
 - Clean HD hand-painted layered maps
 - Layered base maps with transparent props

@@ -133,7 +133,7 @@ Retro JRPG pixel-art style.
 
 ### Codex 建置的可玩遊戲 Showcase
 
-由 Codex 規劃並建置的可玩遊戲 prototype。sprites 與 props 透過 `$generate2dsprite` 生成；當遊戲需要結構化地圖時，地圖場景由 `$generate2dmap` 規劃。有些是 single-prompt demo，有些則是透過對話迭代，把生成素材接進 Godot 的實際 engine scene。
+由 Codex 規劃並建置的可玩遊戲 prototype。sprites 與 props 透過 `$generate2dsprite` 生成；當遊戲需要結構化地圖時，地圖場景由 `$generate2dmap` 規劃。有些是 single-prompt demo，有些則是透過對話迭代，把生成素材接進 Godot 或 Unity 的實際 engine scene。
 
 #### Neon Breach — 賽博龐克橫向捲軸
 
@@ -213,6 +213,44 @@ Pipeline：
 
 ```text
 image_gen map + separated props + tower sheets + enemy animation sheets + HUD icons + Godot gameplay wiring
+```
+
+#### Summon Survivors — Unity WebGL Survivors-like
+
+這是一個用 Codex + agent-sprite-forge 做出的 Unity 6 WebGL prototype。它把生成出的地圖、四方向主角、召喚獸、進化召喚獸、敵人、Boss wave、掉落物、HUD icons、projectile / area FX、升級選項與 WebGL 部署流程接進 Unity 專案。
+
+連結：
+
+- [遊玩 WebGL build](https://summon-survivors.vercel.app/)
+- [完整建置對話](https://drive.google.com/file/d/1TL7qRX95przTToZILVQ1EFwEXm3flB6t/view?usp=sharing)
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./src/summon-survivors-game-preview1.png" alt="Summon Survivors Unity WebGL gameplay with summons, enemies, pickups, HUD, and objective" width="420" />
+      <br />
+      <strong>Unity WebGL gameplay：召喚獸、敵人、掉落物、HUD 與 objective flow</strong>
+    </td>
+    <td align="center" width="50%">
+      <img src="./src/summon-survivors-game-preview2-levelup.png" alt="Summon Survivors Unity WebGL level-up menu with summon and stat choices" width="420" />
+      <br />
+      <strong>Level-up choices：召喚、訓練、能力值與回復選項</strong>
+    </td>
+  </tr>
+</table>
+
+Unity prototype 輸出包含：
+
+- `Assets/Survivors/Scenes/SummonSurvivors.unity` 可直接開啟遊玩的 scene。
+- `SurvivorContentDatabase.asset` 串接 hero、summon、enemy、pickup、HUD 與 FX sprites。
+- 初始召喚獸選擇、生存目標、XP / coin 掉落、level-up choices、召喚獸訓練與進化流程。
+- 敵人生成壓力、Boss timing、投射物攻擊、範圍傷害、血條與分數統計。
+- `Builds/WebGL` WebGL build output 與 Vercel deployment config。
+
+Pipeline：
+
+```text
+image_gen map + directional hero sheets + summon/evolution sheets + enemy sheets + FX/HUD icons + Unity runtime + WebGL deploy
 ```
 
 ### 分層 RPG 地圖 / Clean HD Reference Pipeline
@@ -350,6 +388,7 @@ image_gen tileset + prop_pack_3x3 + layered_tilemap + separate_props + trigger_z
 - 小型 bundle，例如 `unit_bundle`、`spell_bundle`、`combat_bundle`
 - 依 reference 生成的 sprite 變體、動畫 sheet 與進化線
 - Godot 塔防 prototype：地圖、props、塔、敵人、波次、HUD、建塔 / 升級 / 賣塔流程
+- Unity WebGL survivors-like prototype：地圖、四方向角色、召喚獸、敵人、Boss、FX、HUD、升級選項與部署輸出
 - 單張 baked 2D map
 - clean HD 手繪風分層地圖
 - base map + 透明 props 的分層地圖
