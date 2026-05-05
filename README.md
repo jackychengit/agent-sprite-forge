@@ -1,6 +1,6 @@
 # Agent Sprite Forge
 
-[繁體中文 README](./README.zh-TW.md)
+Languages: [English](./README.md) | [繁體中文](./README.zh-TW.md) | [简体中文](./README.zh-CN.md) | [日本語](./README.ja.md) | [한국어](./README.ko.md)
 
 <p align="center">
   <img src="./src/banner.png" alt="Agent Sprite Forge banner" width="900" />
@@ -455,6 +455,9 @@ They are listed in [`requirements.txt`](./requirements.txt). Codex handles image
 agent-sprite-forge/
   README.md
   README.zh-TW.md
+  README.zh-CN.md
+  README.ja.md
+  README.ko.md
   requirements.txt
   src/
   skills/
